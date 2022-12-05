@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iramakain/Donation/page/donationInfo.dart';
+import 'package:iramakain/Partnership/page/partnership.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -95,6 +96,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => DonationInfo()),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Contact Us'),
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyPartnershipPage()),
                     );
                   },
                 ),

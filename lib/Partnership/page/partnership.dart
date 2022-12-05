@@ -40,6 +40,15 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                         );
                       },
                     ),
+                    ListTile(
+                      title: const Text('Contact Us'),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyPartnershipPage()),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
