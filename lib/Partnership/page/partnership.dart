@@ -9,8 +9,13 @@ class MyPartnershipPage extends StatefulWidget {
     @override
     State<MyPartnershipPage> createState() => _MyPartnershipPageState();
 }
-
 class _MyPartnershipPageState extends State<MyPartnershipPage> {
+    final _formKey = GlobalKey<FormState>();
+    String _fullName = "";
+    String _emailAdress = "";
+    String _phoneNumber = "";
+    String _message = "";
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
@@ -52,12 +57,161 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                   ],
                 ),
               ),
-            body: Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                        Text('PARTNERSHIP PAGE'),
+            body: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  child: Container(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text('GET IN TOUCH!!', style: TextStyle(fontSize: 25)),
+                          Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, \nsed do eiusmod tempor incididunt ut labore et dolore \nmagna aliqua.", 
+                          textAlign: TextAlign.center),
+                          Text('Send us a Message', style: TextStyle(fontSize: 20)),
+                          Padding(
+                            // Menggunakan padding sebesar 8 pixels
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Contoh: Pak Rama",
+                                    labelText: "Nama Lengkap",
+                                    // Menambahkan icon agar lebih intuitif
+                                    icon: const Icon(Icons.people),
+                                    // Menambahkan circular border agar lebih rapi
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                ),
+                                // Menambahkan behavior saat nama diketik 
+                                onChanged: (String? value) {
+                                    setState(() {
+                                        _fullName = value!;
+                                    });
+                                },
+                                // Menambahkan behavior saat data disimpan
+                                onSaved: (String? value) {
+                                    setState(() {
+                                        _fullName = value!;
+                                    });
+                                },
+                                // Validator sebagai validasi form
+                                validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                        return 'Nama lengkap tidak boleh kosong!';
+                                    }
+                                    return null;
+                                },
+                            ),
+                        ),
+                          Padding(
+                            // Menggunakan padding sebesar 8 pixels
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Contoh: ramakain@gmail.com",
+                                    labelText: "Email Address",
+                                    // Menambahkan icon agar lebih intuitif
+                                    icon: const Icon(Icons.mail),
+                                    // Menambahkan circular border agar lebih rapi
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                ),
+                                // Menambahkan behavior saat nama diketik 
+                                onChanged: (String? value) {
+                                    setState(() {
+                                        _emailAdress = value!;
+                                    });
+                                },
+                                // Menambahkan behavior saat data disimpan
+                                onSaved: (String? value) {
+                                    setState(() {
+                                        _emailAdress = value!;
+                                    });
+                                },
+                                // Validator sebagai validasi form
+                                validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                        return 'Email tidak boleh kosong!';
+                                    }
+                                    return null;
+                                },
+                            ),
+                        ),
+                          Padding(
+                            // Menggunakan padding sebesar 8 pixels
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Contoh: 082235002091",
+                                    labelText: "Phone Number",
+                                    // Menambahkan icon agar lebih intuitif
+                                    icon: const Icon(Icons.phone),
+                                    // Menambahkan circular border agar lebih rapi
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                ),
+                                // Menambahkan behavior saat nama diketik 
+                                onChanged: (String? value) {
+                                    setState(() {
+                                        _phoneNumber = value!;
+                                    });
+                                },
+                                // Menambahkan behavior saat data disimpan
+                                onSaved: (String? value) {
+                                    setState(() {
+                                        _phoneNumber = value!;
+                                    });
+                                },
+                                // Validator sebagai validasi form
+                                validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                        return 'Nomor tidak boleh kosong!';
+                                    }
+                                    return null;
+                                },
+                            ),
+                        ),
+                          Padding(
+                            // Menggunakan padding sebesar 8 pixels
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Contoh: Ide yang bagus, mari bekerja sama!",
+                                    labelText: "Message",
+                                    // Menambahkan icon agar lebih intuitif
+                                    icon: const Icon(Icons.message),
+                                    // Menambahkan circular border agar lebih rapi
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                ),
+                                // Menambahkan behavior saat nama diketik 
+                                onChanged: (String? value) {
+                                    setState(() {
+                                        _message = value!;
+                                    });
+                                },
+                                // Menambahkan behavior saat data disimpan
+                                onSaved: (String? value) {
+                                    setState(() {
+                                        _message = value!;
+                                    });
+                                },
+                                // Validator sebagai validasi form
+                                validator: (String? value) {
+                                    if (value == null || value.isEmpty) {
+                                        return 'Pesan tidak boleh kosong!';
+                                    }
+                                    return null;
+                                },
+                            ),
+                        ),
                     ],
+                    ),
+                  ),
                 ),
             ),
         );
