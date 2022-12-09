@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:iramakain/drawer.dart';
 import 'package:iramakain/main.dart';
 
 class DonationInfo extends StatefulWidget {
@@ -17,27 +18,9 @@ class _DonationInfoState extends State<DonationInfo> {
         appBar: AppBar(
           title: Text('Donation Info'),
         ),
-        drawer: Drawer(
-          child: Column(
-            children: [
-              ListTile(
-                title: const Text('Home Page'),
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const MyHomePage(title: "Home Page")),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
+        drawer: const IramaKainDrawer(),
         body: Column(
-          children: <Widget>[
-            Text("DONATION INFO")
-          ],
+          children: <Widget>[Text("DONATION INFO")],
         ));
   }
 }

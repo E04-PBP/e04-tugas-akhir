@@ -22,8 +22,7 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const MyHomePage(title: "Home Page")),
+                MaterialPageRoute(builder: (context) => const MyHomePage()),
               );
             },
           ),
