@@ -38,10 +38,9 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: Card(
           shape: RoundedRectangleBorder(
-              side: const BorderSide(
-                color: Colors.red,
-              ),
-              borderRadius: BorderRadius.circular(12)),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          elevation: 20,
           child: SizedBox(
             width: 300,
             height: 300,
@@ -140,6 +139,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       drawer: const IramaKainDrawer(),
+      backgroundColor: const Color.fromRGBO(64, 28, 92, 1),
     );
   }
 }
