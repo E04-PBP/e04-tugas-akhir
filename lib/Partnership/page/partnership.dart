@@ -65,32 +65,58 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('GET IN TOUCH!!', style: TextStyle(fontSize: 25)),
-                          Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
+
+                          Text('GET IN TOUCH!!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                          Text("Feel like contacting us? Submit your queries here and we will get back to you as soon as possible.", 
                           textAlign: TextAlign.center),
 
-                          Text('Contact Info', style: TextStyle(fontSize: 20)),
-                          Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: [
-                              Icon(Icons.location_on),
-                              Text('Pondok Cina, Kecamatan Beji, Kota Depok, Jawa Barat 16424'),
-                            ],
-                          ),
-                          Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: [
-                              Icon(Icons.mail),
-                              Text(' iramakain@gmail.com'),
-                            ],
-                          ),
-                          Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: [
-                              Icon(Icons.call),
-                              Text(' +62-8734-3486-023'),
-                            ],
-                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                              child: Container(  
+                                width: 700,  
+                                height: 200,  
+                                padding: new EdgeInsets.all(10),  
+                                child: Card(  
+                                  shape: RoundedRectangleBorder(  
+                                    borderRadius: BorderRadius.circular(15.0),  
+                                  ),  
+                                  color: Colors.white,  
+                                  elevation: 10,  
+                                  child: Column(  
+                                    mainAxisSize: MainAxisSize.min,  
+                                    children: <Widget>[  
+                                      const ListTile(  
+                                        // leading: Icon(Icons.album, size: 60),  
+                                        title: 
+                                          Text('Contact Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)  
+                                        ),  
+                                      ),  
+                                        Wrap(
+                                          crossAxisAlignment: WrapCrossAlignment.center,
+                                          children: [
+                                            Icon(Icons.location_pin),
+                                            Text('Pondok Cina, Kecamatan Beji, \nKota Depok, Jawa Barat 16424'),
+                                          ],
+                                        ),
+                                        Wrap(
+                                          crossAxisAlignment: WrapCrossAlignment.center,
+                                          children: [
+                                            Icon(Icons.mail),
+                                            Text(' iramakain@gmail.com'),
+                                          ],
+                                        ),
+                                        Wrap(
+                                          crossAxisAlignment: WrapCrossAlignment.center,
+                                          children: [
+                                            Icon(Icons.call),
+                                            Text(' +62-8734-3486-023'),
+                                          ],
+                                        ),
+                                    ],  
+                                  ),  
+                                ),  
+                              )   
+                            ),
 
                           Text('Send us a Message', style: TextStyle(fontSize: 20)),
                           
@@ -99,8 +125,8 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
-                                    hintText: "Contoh: Pak Rama",
-                                    labelText: "Nama Lengkap",
+                                    hintText: "Ex: Rama",
+                                    labelText: "Full Name",
                                     // Menambahkan icon agar lebih intuitif
                                     icon: const Icon(Icons.people),
                                     // Menambahkan circular border agar lebih rapi
@@ -123,7 +149,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                 // Validator sebagai validasi form
                                 validator: (String? value) {
                                     if (value == null || value.isEmpty) {
-                                        return 'Nama lengkap tidak boleh kosong!';
+                                        return 'Please fill the name!';
                                     }
                                     return null;
                                 },
@@ -134,7 +160,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
-                                    hintText: "Contoh: ramakain@gmail.com",
+                                    hintText: "Ex: ramakain@gmail.com",
                                     labelText: "Email Address",
                                     // Menambahkan icon agar lebih intuitif
                                     icon: const Icon(Icons.mail),
@@ -158,7 +184,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                 // Validator sebagai validasi form
                                 validator: (String? value) {
                                     if (value == null || value.isEmpty) {
-                                        return 'Email tidak boleh kosong!';
+                                        return 'Please fill the email!';
                                     }
                                     return null;
                                 },
@@ -169,7 +195,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
-                                    hintText: "Contoh: 082235002091",
+                                    hintText: "Ex: 082235002091",
                                     labelText: "Phone Number",
                                     // Menambahkan icon agar lebih intuitif
                                     icon: const Icon(Icons.phone),
@@ -193,7 +219,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                 // Validator sebagai validasi form
                                 validator: (String? value) {
                                     if (value == null || value.isEmpty) {
-                                        return 'Nomor tidak boleh kosong!';
+                                        return 'Please fill the number!';
                                     }
                                     return null;
                                 },
@@ -204,10 +230,12 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
-                                    hintText: "Contoh: Ide yang bagus, mari bekerja sama!",
+                                    hintText: "Ex: Mari bekerja sama!",
                                     labelText: "Message",
                                     // Menambahkan icon agar lebih intuitif
                                     icon: const Icon(Icons.message),
+                                    contentPadding:
+                                      EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                                     // Menambahkan circular border agar lebih rapi
                                     border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(5.0),
@@ -228,7 +256,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                 // Validator sebagai validasi form
                                 validator: (String? value) {
                                     if (value == null || value.isEmpty) {
-                                        return 'Pesan tidak boleh kosong!';
+                                        return 'Please fill the message!';
                                     }
                                     return null;
                                 },
@@ -254,10 +282,10 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                     elevation: 15,
                                     child: Container(
                                       child: ListView(
-                                        padding: const EdgeInsets.only(top: 20, bottom: 20),
+                                        padding: const EdgeInsets.only(top: 20, bottom: 20, left:20, right:20),
                                         shrinkWrap: true,
                                         children: <Widget>[
-                                          Center(child: const Text('Your Message is Already Send!!')),
+                                          Center(child: const Text('Your Message is Already Send!!', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold))),
                                           SizedBox(height: 20),
                                           // TODO: Munculkan informasi yang didapat dari form
                                           Column(
@@ -265,7 +293,8 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                               Text('Name : $_fullName', style: TextStyle(fontWeight: FontWeight.bold)),
                                               Text('Email : $_emailAdress', style: TextStyle(fontWeight: FontWeight.bold)),
                                               Text('Phone Number : $_phoneNumber', style: TextStyle(fontWeight: FontWeight.bold)),
-                                              Text('$_message', style: TextStyle(fontSize: 15), textAlign: TextAlign.center,),
+                                              Text('--Your Message--', style: TextStyle(color: Colors.blue)),
+                                              Text('$_message', style: TextStyle(fontSize: 10), textAlign: TextAlign.center,),
                                             ],
                                           ),
                                           SizedBox(height: 20),
@@ -274,7 +303,10 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                               Navigator.pop(context);
                                             },
                                             child: 
-                                              Text('Kembali'),
+                                              Text('Back', style: TextStyle(color: Colors.white)),
+                                              style: ButtonStyle(
+                                              backgroundColor: MaterialStateProperty.all(Colors.blue),
+                                            ),
                                           ), 
                                         ],
                                       ),
