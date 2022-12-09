@@ -66,9 +66,34 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text('GET IN TOUCH!!', style: TextStyle(fontSize: 25)),
-                          Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, \nsed do eiusmod tempor incididunt ut labore et dolore \nmagna aliqua.", 
+                          Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
                           textAlign: TextAlign.center),
+
+                          Text('Contact Info', style: TextStyle(fontSize: 20)),
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              Icon(Icons.location_on),
+                              Text('Pondok Cina, Kecamatan Beji, Kota Depok, Jawa Barat 16424'),
+                            ],
+                          ),
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              Icon(Icons.mail),
+                              Text(' iramakain@gmail.com'),
+                            ],
+                          ),
+                          Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              Icon(Icons.call),
+                              Text(' +62-8734-3486-023'),
+                            ],
+                          ),
+
                           Text('Send us a Message', style: TextStyle(fontSize: 20)),
+                          
                           Padding(
                             // Menggunakan padding sebesar 8 pixels
                             padding: const EdgeInsets.all(8.0),
@@ -208,6 +233,57 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                     return null;
                                 },
                             ),
+                        ),
+                        TextButton(
+                          child: const Text(
+                            "Send",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                          ),
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    elevation: 15,
+                                    child: Container(
+                                      child: ListView(
+                                        padding: const EdgeInsets.only(top: 20, bottom: 20),
+                                        shrinkWrap: true,
+                                        children: <Widget>[
+                                          Center(child: const Text('Your Message is Already Send!!')),
+                                          SizedBox(height: 20),
+                                          // TODO: Munculkan informasi yang didapat dari form
+                                          Column(
+                                            children: [
+                                              Text('Name : $_fullName', style: TextStyle(fontWeight: FontWeight.bold)),
+                                              Text('Email : $_emailAdress', style: TextStyle(fontWeight: FontWeight.bold)),
+                                              Text('Phone Number : $_phoneNumber', style: TextStyle(fontWeight: FontWeight.bold)),
+                                              Text('$_message', style: TextStyle(fontSize: 15), textAlign: TextAlign.center,),
+                                            ],
+                                          ),
+                                          SizedBox(height: 20),
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: 
+                                              Text('Kembali'),
+                                          ), 
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            }
+                          },
                         ),
                     ],
                     ),
