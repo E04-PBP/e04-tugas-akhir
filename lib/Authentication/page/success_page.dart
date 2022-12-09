@@ -53,10 +53,27 @@ class _SuccessPageState extends State<SuccessPage> {
                       //       "https://www.pngkey.com/png/detail/14-148130_minion-imagenes-de-100x100-pixeles.png"),
                       // ),
                       const Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text("Welcome Back"),
+                        padding: EdgeInsets.only(
+                          left: 10,
+                          top: 10,
+                          right: 10,
+                          bottom: 50,
+                        ),
+                        child: Text(
+                          "Welcome Back",
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                      Text(snapshot.data.firstName),
+                      Text(
+                        snapshot.data.firstName + " " + snapshot.data.lastName,
+                        style: const TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
