@@ -7,6 +7,7 @@ import 'package:iramakain/Authentication/model/success_page_model.dart';
 import 'dart:convert';
 
 class SuccessPage extends StatefulWidget {
+  const SuccessPage({super.key});
   @override
   State<StatefulWidget> createState() => _SuccessPageState();
 }
@@ -26,9 +27,9 @@ class _SuccessPageState extends State<SuccessPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome"),
+        title: const Text("Welcome"),
       ),
-      drawer: IramaKainDrawer(),
+      drawer: const IramaKainDrawer(),
       body: FutureBuilder(
         future: fetchToDo(),
         builder: (context, AsyncSnapshot snapshot) {

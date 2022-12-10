@@ -6,6 +6,7 @@ import 'package:iramakain/drawer.dart';
 import 'package:iramakain/Authentication/page/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
   @override
   State<StatefulWidget> createState() => _RegisterPageState();
 }
@@ -362,7 +363,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             builder: (BuildContext context) => AlertDialog(
                               title: const Text("Invalid"),
                               content: const Text(
-                                  'Please agree the terms and condition!'),
+                                  'Please agree the terms of service'),
                               actions: [
                                 TextButton(
                                   onPressed: () => Navigator.pop(context, 'OK'),
@@ -416,12 +417,17 @@ class _RegisterPageState extends State<RegisterPage> {
                               },
                             );
 
+                            String message = response["message"].toString();
+                            message = message.replaceAll("[", "");
+                            message = message.replaceAll("]", "");
+                            message = message.replaceAll(",", "");
+
                             if (response["status"] == false) {
                               showDialog<String>(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
                                   title: const Text("Invalid"),
-                                  content: Text(response["message"].toString()),
+                                  content: Text(message),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
@@ -439,7 +445,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
                                   title: const Text("Success"),
-                                  content: Text(response["message"].toString()),
+                                  content: Text(message),
                                   actions: [
                                     TextButton(
                                       onPressed: () {
