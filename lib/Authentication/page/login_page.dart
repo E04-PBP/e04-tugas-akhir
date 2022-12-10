@@ -3,6 +3,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iramakain/drawer.dart';
 import 'package:iramakain/Authentication/page/success_page.dart';
+import 'package:iramakain/Authentication/page/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,11 +15,6 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
   bool isPasswordVisible = false;
-  void togglePasswordView() {
-    setState(() {
-      isPasswordVisible = !isPasswordVisible;
-    });
-  }
 
   void redirect(BuildContext context) {
     Navigator.pushReplacement(
@@ -72,13 +68,14 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
-                          return 'Username cannot be emptied!';
+                          return 'Email cannot be emptied!';
                         }
                         return null;
                       },
                     ),
                   ),
                 ),
+
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Form(
@@ -108,10 +105,21 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegisterPage()));
+                  },
+                  child: const Text(
+                    "Don't have an account?",
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: TextButton(
-                    child: Text("Submit"),
                     onPressed: () async {
                       if (_formKey.currentState!.validate() &&
                           _formKey2.currentState!.validate()) {
@@ -128,9 +136,36 @@ class _LoginPageState extends State<LoginPage> {
                             return;
                           }
                           redirect(context);
-                        } else {}
+                        } else {
+                          showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              title: const Text("Invalid"),
+                              content: const Text('User is not registered!'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(context, 'Cancel'),
+                                  child: const Text('Cancel'),
+                                ),
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context, 'OK'),
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
                       }
                     },
+                    style: TextButton.styleFrom(
+                      elevation: 10,
+                      backgroundColor: const Color.fromRGBO(64, 28, 92, 1),
+                    ),
+                    child: const Text(
+                      "Submit",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ],
