@@ -10,7 +10,6 @@ import 'package:iramakain/Donation/page/donationForm.dart';
 import 'package:iramakain/Donation/page/donationInfo.dart';
 import 'package:iramakain/Partnership/page/partnership.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -38,6 +37,8 @@ class MyApp extends StatelessWidget {
           '/login': (BuildContext context) => const LoginPage(),
           // "/home" : (context) => HomePage(),
           '/partnership': (BuildContext context) => const MyPartnershipPage(),
+          '/register': (BuildContext context) => const RegisterPage(),
+          '/success': (BuildContext context) => const SuccessPage(),
         },
       ),
     );
