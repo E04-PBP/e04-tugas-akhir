@@ -2,6 +2,7 @@ import 'package:iramakain/main.dart';
 import 'package:iramakain/Donation/page/donationForm.dart';
 import 'package:iramakain/Donation/page/donationInfo.dart';
 import 'package:iramakain/drawer.dart';
+import 'package:iramakain/appbar.dart';
 import 'package:flutter/material.dart';
 
 class MyPartnershipPage extends StatefulWidget {
@@ -20,10 +21,9 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
+          
           backgroundColor: const Color.fromRGBO(170, 195, 138, 1),
-            appBar: AppBar(
-                title: Text('Contact Us'),
-            ),
+            appBar: buildAppBar("/partnership"),
             drawer: const IramaKainDrawer(),
             body: Form(
                 key: _formKey,
@@ -34,9 +34,9 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
 
-                          Text('GET IN TOUCH!!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(64, 28, 92, 1))),
+                          Text('Get in Touch', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(138,43,226,1))),
                           Text("Feel like contacting us? Submit your queries here and we will get back to you as soon as possible.", 
-                          textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(64, 28, 92, 1))),
+                          textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(138,43,226,1))),
 
                           Padding(
                             padding: const EdgeInsets.all(8.0),
