@@ -261,7 +261,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                               Text('Email : $_emailAdress', style: TextStyle(fontWeight: FontWeight.bold)),
                                               Text('Phone Number : $_phoneNumber', style: TextStyle(fontWeight: FontWeight.bold)),
                                               Text('--Your Message--', style: TextStyle(color: Colors.blue)),
-                                              Text('$_message', style: TextStyle(fontSize: 10), textAlign: TextAlign.center,),
+                                              Text('$_message', style: TextStyle(fontSize: 15), textAlign: TextAlign.center,),
                                             ],
                                           ),
                                           SizedBox(height: 20),
