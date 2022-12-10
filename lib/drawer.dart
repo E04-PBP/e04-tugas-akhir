@@ -4,6 +4,7 @@ import 'package:iramakain/main.dart';
 import 'package:iramakain/Authentication/page/login_page.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:iramakain/Partnership/page/partnership.dart';
 
 class IramaKainDrawer extends StatefulWidget {
   const IramaKainDrawer({super.key});
@@ -35,6 +36,15 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => DonationInfo()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Contact Us'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MyPartnershipPage()),
               );
             },
           ),
