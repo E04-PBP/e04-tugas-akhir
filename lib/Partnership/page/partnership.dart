@@ -20,6 +20,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
+          backgroundColor: const Color.fromRGBO(170, 195, 138, 1),
             appBar: AppBar(
                 title: Text('Contact Us'),
             ),
@@ -33,9 +34,9 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
 
-                          Text('GET IN TOUCH!!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                          Text('GET IN TOUCH!!', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(64, 28, 92, 1))),
                           Text("Feel like contacting us? Submit your queries here and we will get back to you as soon as possible.", 
-                          textAlign: TextAlign.center),
+                          textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(64, 28, 92, 1))),
 
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -85,17 +86,19 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                               )   
                             ),
 
-                          Text('Send us a Message', style: TextStyle(fontSize: 20)),
+                          Text('Send us a Message', style: TextStyle(fontSize: 20, color: Color.fromRGBO(64, 28, 92, 1)),),
                           
                           Padding(
                             // Menggunakan padding sebesar 8 pixels
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
                                     hintText: "Ex: Rama",
                                     labelText: "Full Name",
                                     // Menambahkan icon agar lebih intuitif
-                                    icon: const Icon(Icons.people),
+                                    icon: const Icon(Icons.people, color: Color.fromRGBO(64, 28, 92, 1)),
                                     // Menambahkan circular border agar lebih rapi
                                     border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(5.0),
@@ -127,10 +130,12 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,                                  
                                     hintText: "Ex: ramakain@gmail.com",
                                     labelText: "Email Address",
                                     // Menambahkan icon agar lebih intuitif
-                                    icon: const Icon(Icons.mail),
+                                    icon: const Icon(Icons.mail, color: Color.fromRGBO(64, 28, 92, 1)),
                                     // Menambahkan circular border agar lebih rapi
                                     border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(5.0),
@@ -162,10 +167,12 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,                                  
                                     hintText: "Ex: 082235002091",
                                     labelText: "Phone Number",
                                     // Menambahkan icon agar lebih intuitif
-                                    icon: const Icon(Icons.phone),
+                                    icon: const Icon(Icons.phone, color: Color.fromRGBO(64, 28, 92, 1)),
                                     // Menambahkan circular border agar lebih rapi
                                     border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(5.0),
@@ -197,10 +204,12 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                                 decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,                                 
                                     hintText: "Ex: Mari bekerja sama!",
                                     labelText: "Message",
                                     // Menambahkan icon agar lebih intuitif
-                                    icon: const Icon(Icons.message),
+                                    icon: const Icon(Icons.message, color: Color.fromRGBO(64, 28, 92, 1)),
                                     contentPadding:
                                       EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                                     // Menambahkan circular border agar lebih rapi
@@ -235,7 +244,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                             style: TextStyle(color: Colors.white),
                           ),
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            backgroundColor: MaterialStateProperty.all(Color.fromRGBO(64, 28, 92, 1)),
                           ),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
