@@ -21,15 +21,15 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
     return Drawer(
       child: Column(
         children: [
-          ListTile(
-            title: const Text('Home'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyHomePage()),
-              );
-            },
-          ),
+          // ListTile(
+          //   title: const Text('Home'),
+          //   onTap: () {
+          //     Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => const MyHomePage()),
+          //     );
+          //   },
+          // ),
           ListTile(
             title: const Text('Donation'),
             onTap: () {
@@ -63,10 +63,10 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
                 if (!mounted) {
                   return;
                 }
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()),
-                );
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const MyHomePage()),
+                // );
               } else {
                 Navigator.pushReplacement(
                   context,

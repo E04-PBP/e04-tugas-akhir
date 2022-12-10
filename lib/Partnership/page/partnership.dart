@@ -23,7 +23,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
         return Scaffold(
           
           backgroundColor: const Color.fromRGBO(170, 195, 138, 1),
-            appBar: buildAppBar("/partnership"),
+            // appBar: buildAppBar("/partnership"),
             drawer: const IramaKainDrawer(),
             body: Form(
                 key: _formKey,

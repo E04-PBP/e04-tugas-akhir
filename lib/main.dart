@@ -34,11 +34,10 @@ class MyApp extends StatelessWidget {
         initialRoute: '/login',
         routes: {
           // '/': (context) => const OnBoarding(),
-          '/main': (context) => const 
-          "/login": (BuildContext context) => const LoginPage(),
+          // '/main': (context) => const MainPage();
+          '/login': (BuildContext context) => const LoginPage(),
           // "/home" : (context) => HomePage(),
-          "/partnership": (BuildContext context) => const MyPartnershipPage(),
-          
+          '/partnership': (BuildContext context) => const MyPartnershipPage(),
         },
       ),
     );
