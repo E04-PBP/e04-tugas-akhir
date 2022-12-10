@@ -53,10 +53,14 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Image(
-                  //   image: NetworkImage(
-                  //       "https://www.pngkey.com/png/detail/14-148130_minion-imagenes-de-100x100-pixeles.png"),
-                  // ),
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12),
+                    ),
+                    child: Image.asset(
+                        "lib/Authentication/assets/img/iramaKain350.png"),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: Form(
@@ -449,12 +453,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                   actions: [
                                     TextButton(
                                       onPressed: () {
-                                        Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const LoginPage()),
-                                        );
+                                        Navigator.pushReplacementNamed(
+                                            context, "/login");
                                       },
                                       child: const Text('OK'),
                                     ),
