@@ -68,13 +68,24 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
                 //   MaterialPageRoute(builder: (context) => const MyHomePage()),
                 // );
               } else {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                );
+                Navigator.pushReplacementNamed(context, "/login");
               }
             },
           ),
+          Visibility(
+            visible: (() {
+              if (request.loggedIn) {
+                return true;
+              }
+              return false;
+            }()),
+            child: ListTile(
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, "/profile");
+              },
+            ),
+          )
         ],
       ),
     );
