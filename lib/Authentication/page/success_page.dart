@@ -97,7 +97,7 @@ class _SuccessPageState extends State<SuccessPage> {
                             child: ElevatedButton(
                               onPressed: () {
                                 Navigator.pushReplacementNamed(
-                                    context, "/home");
+                                    context, "/main");
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
