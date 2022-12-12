@@ -29,9 +29,10 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         title: 'Irama Kain',
-        theme: ThemeData(
-          fontFamily: 'Poppins',
-        ),
+        theme:
+            ThemeData(fontFamily: 'Stratford', primarySwatch: Colors.deepPurple
+                // hintColor: Color.fromRGBO(138, 43, 226, 1),
+                ),
         initialRoute: '/home',
         routes: {
           // '/': (context) => const OnBoarding(),
