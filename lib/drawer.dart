@@ -98,10 +98,10 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
                 if (!mounted) {
                   return;
                 }
-                // Navigator.pushReplacement(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const MyHomePage()),
-                // );
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainPage()),
+                );
               } else {
                 Navigator.pushReplacementNamed(context, "/login");
               }
