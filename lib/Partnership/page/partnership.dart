@@ -25,7 +25,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                 title: Text('Contact Us'),
               ),
           drawer: const IramaKainDrawer(),
-          // backgroundColor: const Color.fromRGBO(170, 195, 138, 1),
+          backgroundColor: const Color.fromRGBO(245,245,245,1),
             // appBar: buildAppBar("/partnership"),
             body: Form(
                 key: _formKey,
@@ -35,21 +35,21 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-
-                          Text('Get in Touch!!', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Color.fromRGBO(64, 28, 92, 1))),
+                          Text('Get in Touch!!', style: TextStyle(fontSize: 45, color: Color.fromRGBO(138,43,226,1), fontFamily: "Stratford",)),
                           Text("Feel like contacting us? Submit your queries here and we will get back to you as soon as possible.", 
                           textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(64, 28, 92, 1))),
 
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                               child: Container(   
+                                width: 600,
                                 height: 170,  
                                 padding: new EdgeInsets.all(10),  
                                 child: Card(  
                                   shape: RoundedRectangleBorder(  
                                     borderRadius: BorderRadius.circular(15.0),  
                                   ),  
-                                  color: Colors.white,  
+                                  color: Color.fromRGBO(138,43,226,1),  
                                   elevation: 10,  
                                   child: Column(  
                                     mainAxisSize: MainAxisSize.min,  
@@ -58,29 +58,29 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                         title: 
                                         Center(
                                           child: 
-                                            Text('Contact Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold) 
+                                            Text('Contact Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,fontStyle: FontStyle.italic, color: Color.fromRGBO(245,245,245,1)) 
                                             ), 
                                         ), 
                                       ),  
                                         Wrap(
                                           crossAxisAlignment: WrapCrossAlignment.center,
                                           children: [
-                                            Icon(Icons.location_pin),
-                                            Text('Pondok Cina, Kecamatan Beji, Kota Depok, Jawa Barat 16424'),
+                                            Icon(Icons.location_pin, color: Color.fromRGBO(245,245,245,1)),
+                                            Text('Pondok Cina, Kecamatan Beji, \nKota Depok, Jawa Barat 16424', style: TextStyle(color: Color.fromRGBO(245,245,245,1))),
                                           ],
                                         ),
                                         Wrap(
                                           crossAxisAlignment: WrapCrossAlignment.center,
                                           children: [
-                                            Icon(Icons.mail),
-                                            Text(' iramakain@gmail.com'),
+                                            Icon(Icons.mail, color: Color.fromRGBO(245,245,245,1)),
+                                            Text(' iramakain@gmail.com', style: TextStyle(color: Color.fromRGBO(245,245,245,1))),
                                           ],
                                         ),
                                         Wrap(
                                           crossAxisAlignment: WrapCrossAlignment.center,
                                           children: [
-                                            Icon(Icons.call),
-                                            Text(' +62-8734-3486-023'),
+                                            Icon(Icons.call, color: Color.fromRGBO(245,245,245,1)),
+                                            Text(' +62-8734-3486-023', style: TextStyle(color: Color.fromRGBO(245,245,245,1))),
                                           ],
                                         ),
                                     ],  
