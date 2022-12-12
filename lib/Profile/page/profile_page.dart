@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: Card(
                       elevation: 20,
                       child: SizedBox(
-                        height: 300,
+                        height: 400,
                         width: 400,
                         // width: MediaQuery.of(context).size.width / 1.5,
                         child: Row(
@@ -78,115 +78,147 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                             Container(
-                              // width: 2 *
-                              //     MediaQuery.of(context).size.width /
-                              //     1.5 /
-                              //     3,
-                              alignment: Alignment.topCenter,
-                              child: Padding(padding: EdgeInsets.symmetric(vertical: 20),
-                              child: Column(
-                                children: [
-                                  const Text(
-                                    "My Details",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(64, 28, 92, 1),
-                                      fontSize: 28,
-                                      fontFamily: "Poppins",
-                                    ),
-                                  ),
-                                  Container(height: 20,),
-                                  Container(
-                                    padding: const EdgeInsets.all(10),
-                                    child: Row(
-                                      children: [
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                // width: 2 *
+                                //     MediaQuery.of(context).size.width /
+                                //     1.5 /
+                                //     3,
+                                alignment: Alignment.topCenter,
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 20),
+                                  child: Column(
+                                    children: [
+                                      const Text(
+                                        "My Details",
+                                        style: TextStyle(
+                                          color: Color.fromRGBO(64, 28, 92, 1),
+                                          fontSize: 28,
+                                          fontFamily: "Poppins",
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 20,
+                                      ),
+                                      Container(
+                                        padding: const EdgeInsets.all(10),
+                                        child: Row(
                                           children: [
-                                            const Text("First Name"),
-                                            Container(height: 10,),
-                                            const Text("Last Name"),
-                                            Container(height: 10,),
-                                            const Text("Email"),
-                                            Container(height: 10,),
-                                            const Text("Gender"),
-                                            Container(height: 10,),
-                                            const Text("Kontak"),
-                                            Container(height: 10,),
-                                            const Text("Alamat"),
-                                            Container(height: 10,),
-                                            const Text("Email"),
-                                            Container(height: 10,),
+                                            Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                const Text("First Name"),
+                                                Container(
+                                                  height: 10,
+                                                ),
+                                                const Text("Last Name"),
+                                                Container(
+                                                  height: 10,
+                                                ),
+                                                const Text("Email"),
+                                                Container(
+                                                  height: 10,
+                                                ),
+                                                const Text("Gender"),
+                                                Container(
+                                                  height: 10,
+                                                ),
+                                                const Text("Kontak"),
+                                                Container(
+                                                  height: 10,
+                                                ),
+                                                const Text("Alamat"),
+                                                Container(
+                                                  height: 10,
+                                                ),
+                                                const Text("Email"),
+                                                Container(
+                                                  height: 10,
+                                                ),
+                                              ],
+                                            ),
+                                            Container(
+                                              width: 10,
+                                            ),
+                                            Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    '${snapshot.data.firstName}',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Container(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    '${snapshot.data.lastName}',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Container(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    '${snapshot.data.email}',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Container(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    snapshot.data.gender
+                                                        ? 'Laki-laki'
+                                                        : 'Perempuan',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Container(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    '${snapshot.data.kontak}',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Container(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    '${snapshot.data.address}',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Container(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    '${snapshot.data.email}',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Container(
+                                                    height: 10,
+                                                  ),
+                                                ]),
                                           ],
                                         ),
-                                        Container(width: 10,),
-                                        Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                '${snapshot.data.firstName}',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Container(height: 10,),
-                                              Text(
-                                                '${snapshot.data.lastName}',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Container(height: 10,),
-                                              Text(
-                                                '${snapshot.data.email}',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Container(height: 10,),
-                                              Text(
-                                                snapshot.data.gender
-                                                    ? 'Laki-laki'
-                                                    : 'Perempuan',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Container(height: 10,),
-                                              Text(
-                                                '${snapshot.data.kontak}',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Container(height: 10,),
-                                              Text(
-                                                '${snapshot.data.address}',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Container(height: 10,),
-                                              Text(
-                                                '${snapshot.data.email}',
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Container(height: 10,),
-                                            ]),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),) 
-                              
-                            ),
+                                )),
                           ],
                         ),
                       ),
