@@ -5,7 +5,7 @@ import 'package:iramakain/Authentication/page/login_page.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
-AppBar buildAppBar(BuildContext context) {
+AppBar buildAppBar(BuildContext context, String s) {
     if (ModalRoute.of(context)!.settings.name == "/main" || ModalRoute.of(context)!.settings.name == "/home") {
         return AppBar();
     } else {
