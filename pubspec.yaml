@@ -66,6 +66,7 @@ flutter:
     - lib/Authentication/assets/img/
     - lib/Donation/assets/img/
     - lib/Profile/assets/img/
+    - lib/Marketplace/assets/img/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
