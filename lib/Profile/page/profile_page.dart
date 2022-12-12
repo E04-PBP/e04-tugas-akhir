@@ -18,7 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
         .get("https://irama-kain.up.railway.app/profile/get_profile");
 
     ProfileModel fetched = ProfileModel.fromJson(response);
-
+    print(response);
     return fetched;
   }
 
@@ -35,6 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
           } else {
+            print(snapshot.data.firstName);
             return Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -50,12 +51,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: Card(
                       elevation: 20,
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width / 1.5,
+                        height: 300,
+                        width: 400,
+                        // width: MediaQuery.of(context).size.width / 1.5,
                         child: Row(
                           children: [
                             Container(
-                              width:
-                                  MediaQuery.of(context).size.width / 1.5 / 3,
+                              // width:
+                              //     MediaQuery.of(context).size.width / 1.5 / 3,
                               alignment: Alignment.topCenter,
                               padding: const EdgeInsets.all(5),
                               color: const Color.fromRGBO(64, 28, 92, 1),
@@ -75,11 +78,12 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                             Container(
-                              width: 2 *
-                                  MediaQuery.of(context).size.width /
-                                  1.5 /
-                                  3,
+                              // width: 2 *
+                              //     MediaQuery.of(context).size.width /
+                              //     1.5 /
+                              //     3,
                               alignment: Alignment.topCenter,
+                              child: Padding(padding: EdgeInsets.symmetric(vertical: 20),
                               child: Column(
                                 children: [
                                   const Text(
@@ -90,6 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       fontFamily: "Poppins",
                                     ),
                                   ),
+                                  Container(height: 20,),
                                   Container(
                                     padding: const EdgeInsets.all(10),
                                     child: Row(
@@ -100,21 +105,87 @@ class _ProfilePageState extends State<ProfilePage> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            const Text(
-                                              "First Name",
-                                              style: const TextStyle(
-                                                fontFamily: "Poppins",
-                                              ),
-                                            ),
-                                            const Text("world"),
+                                            const Text("First Name"),
+                                            Container(height: 10,),
+                                            const Text("Last Name"),
+                                            Container(height: 10,),
+                                            const Text("Email"),
+                                            Container(height: 10,),
+                                            const Text("Gender"),
+                                            Container(height: 10,),
+                                            const Text("Kontak"),
+                                            Container(height: 10,),
+                                            const Text("Alamat"),
+                                            Container(height: 10,),
+                                            const Text("Email"),
+                                            Container(height: 10,),
                                           ],
                                         ),
-                                        Column(),
+                                        Container(width: 10,),
+                                        Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                '${snapshot.data.firstName}',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Container(height: 10,),
+                                              Text(
+                                                '${snapshot.data.lastName}',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Container(height: 10,),
+                                              Text(
+                                                '${snapshot.data.email}',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Container(height: 10,),
+                                              Text(
+                                                snapshot.data.gender
+                                                    ? 'Laki-laki'
+                                                    : 'Perempuan',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Container(height: 10,),
+                                              Text(
+                                                '${snapshot.data.kontak}',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Container(height: 10,),
+                                              Text(
+                                                '${snapshot.data.address}',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Container(height: 10,),
+                                              Text(
+                                                '${snapshot.data.email}',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Container(height: 10,),
+                                            ]),
                                       ],
                                     ),
                                   ),
                                 ],
-                              ),
+                              ),) 
+                              
                             ),
                           ],
                         ),
