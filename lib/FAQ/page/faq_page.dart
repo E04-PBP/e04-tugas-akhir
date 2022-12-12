@@ -1,4 +1,5 @@
 import 'dart:convert';
+// import 'dart:html';
 import 'package:flutter/material.dart';
 //import 'package:http/http.dart' as http;
 import 'package:iramakain/widget/title.dart';
@@ -31,7 +32,7 @@ class FaqPage extends StatelessWidget {
                   textColor: Color.fromRGBO(138, 43, 226, 1),
                   children: [
                     Container(
-                      color: Color.fromARGB(255, 75, 75, 75),
+                      color: Color.fromARGB(255, 214, 214, 214),
                       padding: EdgeInsets.all(20),
                       width: double.infinity,
                       child: Text(
@@ -44,7 +45,7 @@ class FaqPage extends StatelessWidget {
                   textColor: Color.fromRGBO(138, 43, 226, 1),
                   children: [
                     Container(
-                      color: Color.fromARGB(255, 75, 75, 75),
+                      color: Color.fromARGB(255, 214, 214, 214),
                       padding: EdgeInsets.all(20),
                       width: double.infinity,
                       child: Text(

@@ -12,6 +12,8 @@ import 'package:iramakain/Donation/page/donationInfo.dart';
 import 'package:iramakain/Partnership/page/partnership.dart';
 import 'package:iramakain/Profile/page/profile_page.dart';
 
+import 'page/mainpage.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,10 +35,10 @@ class MyApp extends StatelessWidget {
             ThemeData(fontFamily: 'Stratford', primarySwatch: Colors.deepPurple
                 // hintColor: Color.fromRGBO(138, 43, 226, 1),
                 ),
-        initialRoute: '/home',
+        initialRoute: '/main',
         routes: {
           // '/': (context) => const OnBoarding(),
-          // '/main': (context) => const MainPage();
+          '/main': (context) => const MainPage(),
           '/login': (BuildContext context) => const LoginPage(),
           '/donation': (context) => DonationInfo(),
           '/home': (context) => Homepage(),

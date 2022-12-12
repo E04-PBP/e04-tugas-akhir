@@ -1,3 +1,4 @@
+// import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -94,69 +95,69 @@ Widget donationBar(BuildContext context) {
   return FutureBuilder(
       future: fetchProfile(context),
       builder: (context, AsyncSnapshot snapshot) {
-        if (snapshot.data == null)  
+        if (snapshot.data == null)
           return const Center(child: CircularProgressIndicator());
         else
-        return Center(
-            child: Padding(
-          padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
-          child: Expanded(
-            child: Container(
-                padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-                alignment: Alignment.topCenter,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(138, 43, 226, 1),
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
-                // color: Color.fromARGB(153, 18, 18, 18),
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontFamily: "Stratford"),
-                      children: [
-                        TextSpan(
-                            text:
-                                "${snapshot.data.firstName} ${snapshot.data.lastName}'s Donations",
-                            style: TextStyle(fontSize: 24)),
-                        WidgetSpan(
-                            child: Expanded(
-                                child: Container(
-                          height: 30,
-                        ))),
-                        WidgetSpan(child: Divider(color: Colors.white)),
-                        WidgetSpan(
-                            child: Expanded(
-                                child: Container(
-                          alignment: Alignment.center,
-                          width: 500,
-                          // height: 100,
-                          decoration: BoxDecoration(
+          return Center(
+              child: Padding(
+            padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
+            child: Expanded(
+              child: Container(
+                  padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                  alignment: Alignment.topCenter,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(138, 43, 226, 1),
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  // color: Color.fromARGB(153, 18, 18, 18),
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                        style: TextStyle(
                             color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          child: Padding(
-                              padding: EdgeInsets.all(5),
-                              child: RichText(
-                                  text: TextSpan(children: [
-                                WidgetSpan(
-                                    child: Icon(
-                                  Icons.monetization_on_rounded,
-                                  color: Colors.amber,
-                                )),
-                                TextSpan(
-                                  text: "Coins: ${snapshot.data.poin}",
-                                ),
-                              ]))),
-                        )))
-                      ]),
-                )),
-          ),
-        ));
+                            fontSize: 18,
+                            fontFamily: "Stratford"),
+                        children: [
+                          TextSpan(
+                              text:
+                                  "${snapshot.data.firstName} ${snapshot.data.lastName}'s Donations",
+                              style: TextStyle(fontSize: 24)),
+                          WidgetSpan(
+                              child: Expanded(
+                                  child: Container(
+                            height: 30,
+                          ))),
+                          WidgetSpan(child: Divider(color: Colors.white)),
+                          WidgetSpan(
+                              child: Expanded(
+                                  child: Container(
+                            alignment: Alignment.center,
+                            width: 500,
+                            // height: 100,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.rectangle,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Padding(
+                                padding: EdgeInsets.all(5),
+                                child: RichText(
+                                    text: TextSpan(children: [
+                                  WidgetSpan(
+                                      child: Icon(
+                                    Icons.monetization_on_rounded,
+                                    color: Colors.amber,
+                                  )),
+                                  TextSpan(
+                                    text: "Coins: ${snapshot.data.poin}",
+                                  ),
+                                ]))),
+                          )))
+                        ]),
+                  )),
+            ),
+          ));
       });
 }
