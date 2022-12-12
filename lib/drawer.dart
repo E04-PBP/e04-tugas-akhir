@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:iramakain/Partnership/page/partnership.dart';
 import 'package:iramakain/Marketplace/page/marketplace_page.dart';
+import 'package:iramakain/page/mainpage.dart';
 
 class IramaKainDrawer extends StatefulWidget {
   const IramaKainDrawer({super.key});
@@ -37,7 +38,7 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => Homepage()),
+                MaterialPageRoute(builder: (context) => MainPage()),
               );
             },
           ),
