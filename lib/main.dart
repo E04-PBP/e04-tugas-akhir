@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iramakain/Donation/page/donationInfo.dart';
 import 'package:iramakain/drawer.dart';
 import 'package:provider/provider.dart';
+import 'package:iramakain/homepage.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:iramakain/Authentication/page/login_page.dart';
 import 'package:iramakain/Authentication/page/register_page.dart';
@@ -31,12 +32,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Poppins',
         ),
-        initialRoute: '/login',
+        initialRoute: '/home',
         routes: {
           // '/': (context) => const OnBoarding(),
           // '/main': (context) => const MainPage();
           '/login': (BuildContext context) => const LoginPage(),
           '/donation': (context) => DonationInfo(),
+          '/home': (context) => Homepage(),
 
           // "/home" : (context) => HomePage(),
           '/partnership': (BuildContext context) => const MyPartnershipPage(),
