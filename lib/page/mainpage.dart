@@ -11,6 +11,7 @@ import 'package:iramakain/Donation/page/donationForm.dart';
 import 'package:iramakain/Donation/page/donationInfo.dart';
 import 'package:iramakain/Partnership/page/partnership.dart';
 import 'package:iramakain/homepage.dart';
+import 'package:iramakain/Marketplace/page/marketplace_page.dart';
 
 import 'package:iramakain/Profile/page/profile_page.dart';
 
@@ -27,7 +28,7 @@ class _MainPageState extends State<MainPage> {
     Homepage(),
     FaqPage(),
     DonationInfo(),
-    MyPartnershipPage(), // delete
+    MarketplacePage(),
     // Profile(),
     // MarketPlace(),
     // FAQ
