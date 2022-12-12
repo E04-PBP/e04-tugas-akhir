@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 //import 'package:http/http.dart' as http;
 import 'package:iramakain/widget/title.dart';
+import 'package:iramakain/page/mainpage.dart';
 
 import '../../appbar.dart';
 
@@ -51,7 +52,25 @@ class FaqPage extends StatelessWidget {
                           "We help the environment by recycling the fabric waste and also donate our profits to those who need."),
                     )
                   ],
-                )
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  child: TitleHeader(textTop: "Need more information? Ask us!"),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Input Your Question",
+                    icon: const Icon(Icons.wechat_outlined),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
               ]))
         ])));
   }
