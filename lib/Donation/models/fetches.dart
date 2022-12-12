@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iramakain/Donation/models/donationModels.dart';
 import 'package:iramakain/Authentication/model/success_page_model.dart';
+import 'package:iramakain/Profile/model/profile_page_model.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:iramakain/Donation/page/detaildonations.dart';
@@ -61,3 +62,12 @@ Future<SuccessModel> fetchToDo(BuildContext context) async {
 
   return fetched;
 }
+Future<ProfileModel> fetchProfile(BuildContext context) async {
+    final request = context.watch<CookieRequest>();
+    final response = await request
+        .get("https://irama-kain.up.railway.app/profile/get_profile");
+
+    ProfileModel fetched = ProfileModel.fromJson(response);
+
+    return fetched;
+  }

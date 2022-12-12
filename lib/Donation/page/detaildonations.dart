@@ -36,7 +36,7 @@ class _detailDonationState extends State<detailDonation> {
   final _formKey = GlobalKey<FormState>();
   String jenis_barang = "";
   int amount = 0;
-  String waktu_isi = "";
+  String waktu_isi = DateTime.now().toString();
   String shipping_method = "";
   List<String> shippingMethodList = [
     ('Antar sendiri'),
@@ -67,10 +67,6 @@ class _detailDonationState extends State<detailDonation> {
             } else {
               print("first pk");
               print(snapshot.data.pk);
-              jenis_barang = snapshot.data.jenis_barang;
-              amount = snapshot.data.amount;
-              waktu_isi = snapshot.data.waktu_isi;
-              shipping_method = snapshot.data.shipping_method;
               return Stack(children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
@@ -270,10 +266,13 @@ class _detailDonationState extends State<detailDonation> {
                                                                 ),
                                                                 actions: [
                                                                   TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
+                                                                    onPressed: () {
+                                                                      Navigator.pop(
                                                                             context,
-                                                                            'OK'),
+                                                                            'OK');
+                                                                      Navigator.pop(context);
+                                                                    },
+                                                                        
                                                                     child:
                                                                         const Text(
                                                                       'OK',
@@ -285,9 +284,10 @@ class _detailDonationState extends State<detailDonation> {
                                                                 ],
                                                               ),
                                                             );
-                                                            Navigator.pop(
-                                                                context);
+                                                            
                                                           }
+                                                          // Navigator.pop(
+                                                          //       context);
                                                         },
                                                       ),
                                                       ElevatedButton(
@@ -585,8 +585,11 @@ class _detailDonationState extends State<detailDonation> {
                                                                         ),
                                                                         actions: [
                                                                           TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(context, 'OK'),
+                                                                            onPressed: () {
+                                                                                Navigator.pop(context, 'OK');
+                                                                                Navigator.pop(context);
+                                                                            },
+                                                                                
                                                                             child:
                                                                                 const Text(
                                                                               'OK',
@@ -596,9 +599,10 @@ class _detailDonationState extends State<detailDonation> {
                                                                         ],
                                                                       ),
                                                                     );
-                                                                    Navigator.pop(
-                                                                        context);
+                                                                  
                                                                   }
+                                                                  // Navigator.pop(
+                                                                  //       context);
                                                                 },
                                                               ),
                                                             ],

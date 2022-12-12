@@ -7,15 +7,15 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart';
+import 'package:iramakain/Donation/page/widgetLogged.dart';
+import 'package:iramakain/Donation/page/widgetNonLogged.dart';
 import 'package:iramakain/Donation/page/donationForm.dart';
 import 'package:iramakain/drawer.dart';
 import 'package:iramakain/main.dart';
 import 'package:iramakain/appbar.dart';
 import 'package:iramakain/Donation/models/fetches.dart';
-
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-
 import 'package:iramakain/Donation/page/detaildonations.dart';
 
 class DonationInfo extends StatefulWidget {
@@ -51,74 +51,12 @@ class _DonationInfoState extends State<DonationInfo> {
                   ),
                 ),
                 Column(children: <Widget>[
-                  Center(
-                      child: Padding(
-                    padding: EdgeInsets.only(
-                        top: 10, left: 10, right: 10, bottom: 10),
-                    child: Expanded(
-                      child: Container(
-                          padding:
-                              EdgeInsets.only(left: 10, right: 10, top: 10),
-                          alignment: Alignment.topCenter,
-                          height: 150,
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(138, 43, 226, 1),
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          // color: Color.fromARGB(153, 18, 18, 18),
-                          child: RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontFamily: "Stratford"),
-                                children: [
-                                  TextSpan(
-                                    text: request.loggedIn
-                                        ? "Username's Donation"
-                                        : "Be the agent of change!",
-                                    style: TextStyle(fontSize: 24)
-                                  ),
-                                  WidgetSpan(
-                                      child: Expanded(
-                                          child: Container(
-                                    height: 30,
-                                  ))),
-                                  WidgetSpan(
-                                      child: Divider(color: Colors.white)),
-                                  WidgetSpan(
-                                      child: Expanded(
-                                          child: Container(
-                                    alignment: Alignment.center,
-                                    width: 500,
-                                    // height: 100,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.rectangle,
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    child: Padding(
-                                        padding: EdgeInsets.all(5),
-                                        child: RichText(
-                                            text: TextSpan(children: [
-                                          WidgetSpan(
-                                              child: Icon(
-                                            Icons.monetization_on_rounded,
-                                            color: Colors.amber,
-                                          )),
-                                          TextSpan(
-                                              text: "Coins: ",
-                                              style: TextStyle(
-                                                  fontFamily: "Stratford")),
-                                        ]))),
-                                  )))
-                                ]),
-                          )),
-                    ),
-                  )),
-                  // Expanded(child: Container(height: 10,)),
+                  if (request.loggedIn) ...[
+                    donationBar(context),
+                  ]
+                  else ... [
+                    donationBarNonLogged(context)
+                  ],
 
                   Center(
                     child: Padding(
@@ -160,7 +98,7 @@ class _DonationInfoState extends State<DonationInfo> {
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Container(
                               //  color: Color.fromRGBO(170, 195, 138, 0.8),
-                              child: Center(child: loggedinHistory()),
+                              child: Center(child: loggedinHistory(context)),
                             ),
                           )
                         ]
@@ -170,17 +108,22 @@ class _DonationInfoState extends State<DonationInfo> {
                 ])
               ],
             ),
+            
             floatingActionButton: 
                     FloatingActionButton(
                       elevation: 8,
                       hoverColor: Colors.blueGrey,
                       backgroundColor: Color.fromRGBO(138, 43, 226, 1),
                       onPressed: () {
-                        Navigator.push(
+                        if (request.loggedIn) {
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => DonationForm()),
                             ).then((value) => setState(() {}));
+                        }
+                        
+                        
                       },
                       child: const Icon(Icons.add),
                     ),
@@ -222,32 +165,7 @@ class _DonationInfoState extends State<DonationInfo> {
     );
   }
 
-  Widget notloggedin(String infoType) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: Container(
-        //  color: Color.fromRGBO(64, 28, 92, 0.8),
-        child: Center(
-          child: RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                children: [
-                  WidgetSpan(
-                      child: Icon(
-                    Icons.sentiment_very_dissatisfied_sharp,
-                    color: Color.fromRGBO(64, 28, 92, 1),
-                  )),
-                  TextSpan(
-                      text: infoType == "ongoing"
-                          ? "\nThere are no ongoing donations yet."
-                          : "\nThere are no donation history yet."),
-                  TextSpan(text: "\nPlease sign in to start donating.")
-                ],
-              )),
-        ),
-      ),
-    );
-  }
+  
 
   Widget loggedInOngoing() {
     return FutureBuilder(
@@ -310,7 +228,7 @@ class _DonationInfoState extends State<DonationInfo> {
                             fit: BoxFit.fitHeight,
                           )),
                           title: Text(
-                            '${snapshot.data![index].jenis_barang}',
+                            'Donasi ${snapshot.data![index].jenis_barang}',
                             style: TextStyle(color: Colors.white),
                           ),
                           subtitle: Text(
@@ -327,17 +245,6 @@ class _DonationInfoState extends State<DonationInfo> {
                             ).then((value) => setState(() {}));
                           },
 
-                          // trailing: Checkbox(
-                          //   value: checkvalue[index],
-                          //   onChanged: (bool? value) {
-                          //     setState(() {
-                          //       checkvalue[index] = value!;
-                          //       watchedStatus[index] = checkvalue[index] == true
-                          //           ? "YES"
-                          //           : "LISTED";
-                          //     });
-                          //   },
-                          // ),
                         ),
                       )));
             }
@@ -345,78 +252,4 @@ class _DonationInfoState extends State<DonationInfo> {
         });
   }
 
-  Widget loggedinHistory() {
-    return FutureBuilder(
-        future: fetchDonationHist(context),
-        builder: (context, AsyncSnapshot snapshot) {
-          if (snapshot.data == null) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            if (!snapshot.hasData) {
-              return Column(
-                children: [
-                  Center(
-                      child: RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            style:
-                                TextStyle(color: Color.fromRGBO(64, 28, 92, 1)),
-                            children: [
-                              TextSpan(
-                                text: "\nThere are no ongoing donations yet.",
-                                style: TextStyle(
-                                    color: Color.fromRGBO(64, 28, 92, 1)),
-                              ),
-                              TextSpan(
-                                text: "\nStart donating now!.",
-                                style: TextStyle(
-                                    color: Color.fromRGBO(64, 28, 92, 1)),
-                              ),
-                              WidgetSpan(
-                                  child: IconButton(
-                                icon: Icon(Icons.add_circle,
-                                    color: Color.fromRGBO(64, 28, 92, 1),
-                                    size: 30),
-                                onPressed: () => null,
-                              )),
-                            ],
-                          )))
-                ],
-              );
-            } else {
-              return ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (_, index) => Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 200,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(colors: [
-                            Color.fromRGBO(138, 43, 226, 0.8),
-                            Color.fromRGBO(170, 195, 138, 0.8),
-                          ]),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: ListTile(
-                          leading: Container(
-                              child: Image(
-                            image: AssetImage(
-                                "lib/Donation/assets/img/unsplash_fouVDmGXoPI.png"),
-                            fit: BoxFit.fitHeight,
-                          )),
-                          title: Text(
-                            '${snapshot.data![index].jenis_barang}',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          subtitle: Text(
-                            'Last updated on: ${snapshot.data![index].waktu_isi}',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      )));
-            }
-          }
-        });
-  }
 }
