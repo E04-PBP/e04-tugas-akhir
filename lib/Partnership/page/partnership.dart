@@ -35,7 +35,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('Get in Touch!!', style: TextStyle(fontSize: 45, color: Color.fromRGBO(138,43,226,1), fontFamily: "Stratford",)),
+                          Text('Get in Touch!!', style: TextStyle(fontSize: 45, color: Color.fromRGBO(64, 28, 92, 1), fontFamily: "Stratford",)),
                           Text("Feel like contacting us? Submit your queries here and we will get back to you as soon as possible.", 
                           textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(64, 28, 92, 1))),
 
@@ -264,7 +264,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                         padding: const EdgeInsets.only(top: 20, bottom: 20, left:20, right:20),
                                         shrinkWrap: true,
                                         children: <Widget>[
-                                          Center(child: const Text('Your Message is Already Send!!', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold))),
+                                          Center(child: const Text('Your Message is Already Send!!', style: TextStyle(color: Color.fromRGBO(64, 28, 92, 1), fontWeight: FontWeight.bold))),
                                           SizedBox(height: 20),
                                           // TODO: Munculkan informasi yang didapat dari form
                                           Column(
@@ -272,7 +272,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                               Text('Name : $_fullName', style: TextStyle(fontWeight: FontWeight.bold)),
                                               Text('Email : $_emailAdress', style: TextStyle(fontWeight: FontWeight.bold)),
                                               Text('Phone Number : $_phoneNumber', style: TextStyle(fontWeight: FontWeight.bold)),
-                                              Text('--Your Message--', style: TextStyle(color: Colors.blue)),
+                                              Text('--Your Message--', style: TextStyle(color: Color.fromRGBO(64, 28, 92, 1))),
                                               Text('$_message', style: TextStyle(fontSize: 15), textAlign: TextAlign.center,),
                                             ],
                                           ),
@@ -284,7 +284,7 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                             child: 
                                               Text('Back', style: TextStyle(color: Colors.white)),
                                               style: ButtonStyle(
-                                              backgroundColor: MaterialStateProperty.all(Colors.blue),
+                                              backgroundColor: MaterialStateProperty.all(Color.fromRGBO(138,43,226,1)),
                                             ),
                                           ), 
                                         ],
