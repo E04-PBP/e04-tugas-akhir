@@ -5,6 +5,7 @@ import 'package:iramakain/Authentication/page/login_page.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:iramakain/Partnership/page/partnership.dart';
+import 'package:iramakain/Marketplace/page/marketplace_page.dart';
 
 class IramaKainDrawer extends StatefulWidget {
   const IramaKainDrawer({super.key});
@@ -45,6 +46,15 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => MyPartnershipPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Marketplace'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MarketplacePage()),
               );
             },
           ),
