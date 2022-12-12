@@ -68,6 +68,20 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
               );
             },
           ),
+          Visibility(
+            visible: (() {
+              if (request.loggedIn) {
+                return true;
+              }
+              return false;
+            }()),
+            child: ListTile(
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, "/profile");
+              },
+            ),
+          ),
           ListTile(
             title: (() {
               if (request.loggedIn) {
@@ -92,20 +106,6 @@ class _IramaKainDrawerState extends State<IramaKainDrawer> {
               }
             },
           ),
-          Visibility(
-            visible: (() {
-              if (request.loggedIn) {
-                return true;
-              }
-              return false;
-            }()),
-            child: ListTile(
-              title: const Text('Profile'),
-              onTap: () {
-                Navigator.pushReplacementNamed(context, "/profile");
-              },
-            ),
-          )
         ],
       ),
     );

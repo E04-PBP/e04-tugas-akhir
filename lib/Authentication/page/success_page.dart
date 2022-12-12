@@ -81,7 +81,7 @@ class _SuccessPageState extends State<SuccessPage> {
                             }
                           }()),
                           Padding(
-                            padding: const EdgeInsets.only(top: 20, bottom: 10),
+                            padding: const EdgeInsets.only(top: 20, bottom: 20),
                             child: Text(
                               snapshot.data.firstName +
                                   " " +
@@ -90,6 +90,20 @@ class _SuccessPageState extends State<SuccessPage> {
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                    context, "/home");
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    const Color.fromRGBO(64, 28, 92, 1),
+                              ),
+                              child: const Text("Proceed"),
                             ),
                           ),
                         ],
