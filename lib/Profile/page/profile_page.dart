@@ -35,44 +35,89 @@ class _ProfilePageState extends State<ProfilePage> {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
           } else {
-            return Center(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
+            return Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("lib/Profile/assets/img/bg.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Center(
                 child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Card(
-                    elevation: 20,
-                    child: SizedBox(
-                      width: 400,
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 120,
-                            height: 300,
-                            alignment: Alignment.topCenter,
-                            padding: const EdgeInsets.all(10),
-                            color: const Color.fromRGBO(64, 28, 92, 1),
-                            child: CircleAvatar(
-                              radius: 50,
-                              backgroundImage: (() {
-                                if (!snapshot.data.gender) {
-                                  return const AssetImage(
-                                    "lib/Authentication/assets/img/woman.jpg",
-                                  );
-                                } else {
-                                  return const AssetImage(
-                                    "lib/Authentication/assets/img/man.jpg",
-                                  );
-                                }
-                              }()),
+                  scrollDirection: Axis.horizontal,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Card(
+                      elevation: 20,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width / 1.5,
+                        child: Row(
+                          children: [
+                            Container(
+                              width:
+                                  MediaQuery.of(context).size.width / 1.5 / 3,
+                              alignment: Alignment.topCenter,
+                              padding: const EdgeInsets.all(5),
+                              color: const Color.fromRGBO(64, 28, 92, 1),
+                              child: CircleAvatar(
+                                radius: 50,
+                                backgroundImage: (() {
+                                  if (!snapshot.data.gender) {
+                                    return const AssetImage(
+                                      "lib/Authentication/assets/img/woman.jpg",
+                                    );
+                                  } else {
+                                    return const AssetImage(
+                                      "lib/Authentication/assets/img/man.jpg",
+                                    );
+                                  }
+                                }()),
+                              ),
                             ),
-                          ),
-                          Container(
-                            width: 250,
-                            height: 300,
-                            child: Text("helo"),
-                          ),
-                        ],
+                            Container(
+                              width: 2 *
+                                  MediaQuery.of(context).size.width /
+                                  1.5 /
+                                  3,
+                              alignment: Alignment.topCenter,
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    "My Details",
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(64, 28, 92, 1),
+                                      fontSize: 28,
+                                      fontFamily: "Poppins",
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Row(
+                                      children: [
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const Text(
+                                              "First Name",
+                                              style: const TextStyle(
+                                                fontFamily: "Poppins",
+                                              ),
+                                            ),
+                                            const Text("world"),
+                                          ],
+                                        ),
+                                        Column(),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

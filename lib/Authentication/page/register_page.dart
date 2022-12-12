@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
   var lastName = "";
   var gender = ["Male", "Female"];
   bool? check = false;
-  String? pickedGender = null;
+  String? pickedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -49,17 +49,22 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             elevation: 20,
             child: SizedBox(
-              width: 350,
+              width: MediaQuery.of(context).size.width / 2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
+                      ),
+                      child: Image.asset(
+                        "lib/Authentication/assets/img/iramaKain.png",
+                        fit: BoxFit.fitWidth,
+                      ),
                     ),
-                    child: Image.asset(
-                        "lib/Authentication/assets/img/iramaKain350.png"),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10),
@@ -359,7 +364,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10),
-                    child: TextButton(
+                    child: ElevatedButton(
                       onPressed: () async {
                         if (check == false) {
                           showDialog<String>(
@@ -465,9 +470,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           }
                         }
                       },
-                      style: TextButton.styleFrom(
+                      style: ElevatedButton.styleFrom(
                         elevation: 10,
                         backgroundColor: const Color.fromRGBO(64, 28, 92, 1),
+                        minimumSize: const Size.fromHeight(50),
                       ),
                       child: const Text(
                         "Submit",

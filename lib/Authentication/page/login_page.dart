@@ -41,17 +41,22 @@ class _LoginPageState extends State<LoginPage> {
               ),
               elevation: 20,
               child: SizedBox(
-                width: 300,
+                width: MediaQuery.of(context).size.width / 2,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(12),
+                          topRight: Radius.circular(12),
+                        ),
+                        child: Image.asset(
+                          "lib/Authentication/assets/img/iramaKain.png",
+                          fit: BoxFit.fitWidth,
+                        ),
                       ),
-                      child: Image.asset(
-                          "lib/Authentication/assets/img/iramaKain.png"),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10),
@@ -120,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10),
-                      child: TextButton(
+                      child: ElevatedButton(
                         onPressed: () async {
                           if (_formKey.currentState!.validate() &&
                               _formKey2.currentState!.validate()) {
@@ -161,10 +166,11 @@ class _LoginPageState extends State<LoginPage> {
                             }
                           }
                         },
-                        style: TextButton.styleFrom(
-                          elevation: 10,
-                          backgroundColor: const Color.fromRGBO(64, 28, 92, 1),
-                        ),
+                        style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            backgroundColor:
+                                const Color.fromRGBO(64, 28, 92, 1),
+                            minimumSize: const Size.fromHeight(50)),
                         child: const Text(
                           "Submit",
                           style: TextStyle(color: Colors.white),
