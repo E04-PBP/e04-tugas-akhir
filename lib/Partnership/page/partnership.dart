@@ -21,10 +21,12 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
-          
-          backgroundColor: const Color.fromRGBO(170, 195, 138, 1),
+          appBar: AppBar(
+                title: Text('Contact Us'),
+              ),
+          drawer: const IramaKainDrawer(),
+          // backgroundColor: const Color.fromRGBO(170, 195, 138, 1),
             // appBar: buildAppBar("/partnership"),
-            drawer: const IramaKainDrawer(),
             body: Form(
                 key: _formKey,
                 child: SingleChildScrollView(
@@ -34,15 +36,14 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
 
-                          Text('Get in Touch', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color.fromRGBO(138,43,226,1))),
+                          Text('Get in Touch!!', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Color.fromRGBO(64, 28, 92, 1))),
                           Text("Feel like contacting us? Submit your queries here and we will get back to you as soon as possible.", 
-                          textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(138,43,226,1))),
+                          textAlign: TextAlign.center, style: TextStyle(color: Color.fromRGBO(64, 28, 92, 1))),
 
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                              child: Container(  
-                                width: 700,  
-                                height: 200,  
+                              child: Container(   
+                                height: 170,  
                                 padding: new EdgeInsets.all(10),  
                                 child: Card(  
                                   shape: RoundedRectangleBorder(  
@@ -53,17 +54,19 @@ class _MyPartnershipPageState extends State<MyPartnershipPage> {
                                   child: Column(  
                                     mainAxisSize: MainAxisSize.min,  
                                     children: <Widget>[  
-                                      const ListTile(  
-                                        // leading: Icon(Icons.album, size: 60),  
+                                      const ListTile(   
                                         title: 
-                                          Text('Contact Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)  
-                                        ),  
+                                        Center(
+                                          child: 
+                                            Text('Contact Info', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold) 
+                                            ), 
+                                        ), 
                                       ),  
                                         Wrap(
                                           crossAxisAlignment: WrapCrossAlignment.center,
                                           children: [
                                             Icon(Icons.location_pin),
-                                            Text('Pondok Cina, Kecamatan Beji, \nKota Depok, Jawa Barat 16424'),
+                                            Text('Pondok Cina, Kecamatan Beji, Kota Depok, Jawa Barat 16424'),
                                           ],
                                         ),
                                         Wrap(

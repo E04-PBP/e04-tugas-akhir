@@ -13,7 +13,7 @@ class SuccessPage extends StatefulWidget {
 }
 
 class _SuccessPageState extends State<SuccessPage> {
-  Future<SuccessModel> fetchToDo() async {
+  Future<SuccessModel> fetch() async {
     final request = context.watch<CookieRequest>();
     final response = await request
         .get("https://irama-kain.up.railway.app/Authentication/json/");
@@ -30,52 +30,71 @@ class _SuccessPageState extends State<SuccessPage> {
         title: const Text("Welcome"),
       ),
       drawer: const IramaKainDrawer(),
+      backgroundColor: const Color.fromRGBO(64, 28, 92, 1),
       body: FutureBuilder(
-        future: fetchToDo(),
+        future: fetch(),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
           } else {
             return Center(
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    side: const BorderSide(
-                      color: Colors.red,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                    borderRadius: BorderRadius.circular(12)),
-                child: SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // Image(
-                      //   image: NetworkImage(
-                      //       "https://www.pngkey.com/png/detail/14-148130_minion-imagenes-de-100x100-pixeles.png"),
-                      // ),
-                      const Padding(
-                        padding: EdgeInsets.only(
-                          left: 10,
-                          top: 10,
-                          right: 10,
-                          bottom: 50,
-                        ),
-                        child: Text(
-                          "Welcome Back",
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
+                    child: SizedBox(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(
+                              left: 10,
+                              top: 10,
+                              right: 10,
+                              bottom: 20,
+                            ),
+                            child: Text(
+                              "Welcome Back",
+                              style: TextStyle(
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
-                        ),
+                          (() {
+                            if (snapshot.data.gender == "PP") {
+                              return Image.asset(
+                                "lib/Authentication/assets/img/woman.jpg",
+                                width: 300,
+                                height: 200,
+                              );
+                            } else {
+                              return Image.asset(
+                                "lib/Authentication/assets/img/man.jpg",
+                                width: 300,
+                                height: 200,
+                              );
+                            }
+                          }()),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20, bottom: 10),
+                            child: Text(
+                              snapshot.data.firstName +
+                                  " " +
+                                  snapshot.data.lastName,
+                              style: const TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        snapshot.data.firstName + " " + snapshot.data.lastName,
-                        style: const TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
