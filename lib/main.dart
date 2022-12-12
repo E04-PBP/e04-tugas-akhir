@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           // '/': (context) => const OnBoarding(),
           // '/main': (context) => const MainPage();
           '/login': (BuildContext context) => const LoginPage(),
-          '/donation': (context) => const DonationInfo(),
+          '/donation': (context) => const DonationInfo();
 
           // "/home" : (context) => HomePage(),
           '/partnership': (BuildContext context) => const MyPartnershipPage(),
