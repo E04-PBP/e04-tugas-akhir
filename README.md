@@ -65,3 +65,6 @@ Logged in user memiliki akses untuk melakukan donasi baju dan membeli baju rewor
    
 ## Build Badge
 [![Build status](https://build.appcenter.ms/v0.1/apps/0e01fc63-a1ca-457a-bfa2-4cd988002313/branches/main/badge)](https://appcenter.ms)
+
+## Link Aplikasi
+https://install.appcenter.ms/orgs/iramakain/apps/irama-kain/distribution_groups/public
