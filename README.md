@@ -63,3 +63,5 @@ Logged in user memiliki akses untuk melakukan donasi baju dan membeli baju rewor
 ## Alur Pengintegrasian dengan Web Service 
   Kami mengintegrasikan aplikasi Irama Kain dengan aplikasi web yang telah dibuat pada proyek tengah semester melalui request GET dan POST ke URL Heroku. Data yang didapatkan melalui request tersebut akan berbentuk string json yang telah di-decode menjadi dynamic object. Dynamic object yang telah didapatkan kami ubah ke dalam model-model yang telah dibuat. Selanjutnya, kami menggunakan widget FutureBuilder yang atribut future-nya merupakan objek-objek dari model yang telah dihasilkan. Atribut snapshot yang terbentuk melalui widget FutureBuilder akan kami gunakan untuk melanjutkan proses pembentukan aplikasi.
    
+## Build Badge
+[![Build status](https://build.appcenter.ms/v0.1/apps/0e01fc63-a1ca-457a-bfa2-4cd988002313/branches/main/badge)](https://appcenter.ms)
