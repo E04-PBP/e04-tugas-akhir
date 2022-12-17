@@ -1,20 +1,7 @@
-// import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:intl/intl.dart';
-import 'package:http/http.dart' as http;
-import 'package:flutter/services.dart';
-import 'package:iramakain/Donation/page/widgetLogged.dart';
-import 'package:iramakain/Donation/page/widgetNonLogged.dart';
-import 'package:iramakain/Donation/page/donationForm.dart';
 import 'package:iramakain/drawer.dart';
-import 'package:iramakain/main.dart';
-import 'package:iramakain/appbar.dart';
-import 'package:iramakain/Donation/models/fetches.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:iramakain/Donation/page/detaildonations.dart';
 
 class Homepage extends StatefulWidget {
   @override

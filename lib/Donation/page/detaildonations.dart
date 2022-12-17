@@ -1,16 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:iramakain/Donation/page/donationInfo.dart';
-import 'package:iramakain/main.dart';
 import 'package:iramakain/drawer.dart';
-import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:iramakain/drawer.dart';
-import 'package:iramakain/appbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:iramakain/Donation/models/donationModels.dart';
@@ -28,16 +19,16 @@ class _detailDonationState extends State<detailDonation> {
   final DonationModel itemHolder;
   _detailDonationState(this.itemHolder);
 
+  callback() {
+    setState(() {});
+  }
+
   goBack(BuildContext context) {
     Navigator.pop(context);
   }
 
   final _keyDialog1 = GlobalKey();
   final _formKey = GlobalKey<FormState>();
-  String jenis_barang = "";
-  int amount = 0;
-  String waktu_isi = DateTime.now().toString();
-  String shipping_method = "";
   List<String> shippingMethodList = [
     ('Antar sendiri'),
     ('JNE'),
@@ -46,10 +37,6 @@ class _detailDonationState extends State<detailDonation> {
     ('SiCepat'),
     ('J&T')
   ];
-  // jenis_barang = itemHolder.jenis_barang;
-  // amount = itemHolder.amount;
-  // waktu_isi = itemHolder.waktu_isi;
-  // shipping_method = itemHolder.shipping_method;
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +54,10 @@ class _detailDonationState extends State<detailDonation> {
             } else {
               print("first pk");
               print(snapshot.data.pk);
+              String jenis_barang = snapshot.data.jenis_barang;
+              int amount = snapshot.data.amount;
+              String shipping_method = snapshot.data.shipping_method;
+              String waktu_isi = snapshot.data.waktu_isi;
               return Stack(children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
@@ -90,17 +81,17 @@ class _detailDonationState extends State<detailDonation> {
                             textAlign: TextAlign.center,
                           )),
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 40),
+                            margin: EdgeInsets.symmetric(vertical: 50),
                             alignment: Alignment.center,
-                            width: 400,
-                            height: 300,
-                            padding: EdgeInsets.all(50),
+                            width: 350,
+                            height: 250,
+                            padding: EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(colors: [
                                 Color.fromRGBO(138, 43, 226, 0.6),
                                 Color.fromRGBO(170, 195, 138, 0.8),
                               ]),
-                              borderRadius: BorderRadius.circular(5.0),
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,7 +104,7 @@ class _detailDonationState extends State<detailDonation> {
                                         fontSize: 16),
                                     children: <TextSpan>[
                                       TextSpan(
-                                        text: 'Jenis Kain: ',
+                                        text: 'Jenis Kain: \n',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -130,7 +121,7 @@ class _detailDonationState extends State<detailDonation> {
                                         fontSize: 16),
                                     children: <TextSpan>[
                                       TextSpan(
-                                        text: 'Banyak: ',
+                                        text: 'Banyak: \n',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -140,13 +131,14 @@ class _detailDonationState extends State<detailDonation> {
                                   ),
                                 ),
                                 RichText(
+                                  textAlign: TextAlign.center,
                                   text: TextSpan(
                                     style: TextStyle(
                                         color: Color.fromRGBO(64, 28, 92, 1),
                                         fontSize: 16),
                                     children: <TextSpan>[
                                       TextSpan(
-                                        text: 'Shipping Method: ',
+                                        text: 'Shipping Method: \n',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -156,25 +148,27 @@ class _detailDonationState extends State<detailDonation> {
                                   ),
                                 ),
                                 RichText(
+                                  textAlign: TextAlign.center,
                                   text: TextSpan(
                                     style: TextStyle(
                                         color: Color.fromRGBO(64, 28, 92, 1),
                                         fontSize: 16),
                                     children: <TextSpan>[
                                       TextSpan(
-                                        text: 'Last updated: ',
+                                        text: 'Last updated: \n',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                       TextSpan(
-                                          text: DateFormat('dd-MM-yyyy hh:mm a').format(
-                                              DateTime.parse(waktu_isi))),
+                                          text: DateFormat('dd-MM-yyyy hh:mm a')
+                                              .format(
+                                                  DateTime.parse(waktu_isi))),
                                     ],
                                   ),
                                 ),
                                 Container(
-                                  height: 40,
+                                  height: 10,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -266,13 +260,14 @@ class _detailDonationState extends State<detailDonation> {
                                                                 ),
                                                                 actions: [
                                                                   TextButton(
-                                                                    onPressed: () {
+                                                                    onPressed:
+                                                                        () {
                                                                       Navigator.pop(
-                                                                            context,
-                                                                            'OK');
-                                                                      Navigator.pop(context);
+                                                                          context,
+                                                                          'OK');
+                                                                      Navigator.pop(
+                                                                          context);
                                                                     },
-                                                                        
                                                                     child:
                                                                         const Text(
                                                                       'OK',
@@ -284,10 +279,7 @@ class _detailDonationState extends State<detailDonation> {
                                                                 ],
                                                               ),
                                                             );
-                                                            
                                                           }
-                                                          // Navigator.pop(
-                                                          //       context);
                                                         },
                                                       ),
                                                       ElevatedButton(
@@ -432,8 +424,8 @@ class _detailDonationState extends State<detailDonation> {
                                                                     FilteringTextInputFormatter
                                                                         .digitsOnly,
                                                                     FilteringTextInputFormatter
-                                                                        .deny(
-                                                                            "0")
+                                                                        .deny(RegExp(
+                                                                            r'^0'))
                                                                   ],
                                                                   onChanged:
                                                                       (String?
@@ -585,11 +577,11 @@ class _detailDonationState extends State<detailDonation> {
                                                                         ),
                                                                         actions: [
                                                                           TextButton(
-                                                                            onPressed: () {
-                                                                                Navigator.pop(context, 'OK');
-                                                                                Navigator.pop(context);
+                                                                            onPressed:
+                                                                                () {
+                                                                              Navigator.pop(context, 'OK');
+                                                                              Navigator.pop(context);
                                                                             },
-                                                                                
                                                                             child:
                                                                                 const Text(
                                                                               'OK',
@@ -599,10 +591,8 @@ class _detailDonationState extends State<detailDonation> {
                                                                         ],
                                                                       ),
                                                                     );
-                                                                  
                                                                   }
-                                                                  // Navigator.pop(
-                                                                  //       context);
+                                                                  callback();
                                                                 },
                                                               ),
                                                             ],
@@ -623,7 +613,14 @@ class _detailDonationState extends State<detailDonation> {
               ]);
             }
           }),
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          image: DecorationImage(
+            image: AssetImage("lib/Donation/assets/img/noise.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Padding(
           child: ElevatedButton(
             onPressed: () {
@@ -632,13 +629,12 @@ class _detailDonationState extends State<detailDonation> {
             child: Text('Back'),
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromRGBO(64, 28, 92, 1),
-              shadowColor: Color.fromRGBO(64, 28, 92, 1),
-              elevation: 5,
+              shadowColor: Color.fromRGBO(64, 28, 92, 0.2),
+              elevation: 0,
             ),
           ),
           padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
         ),
-        elevation: 5,
       ),
     );
   }

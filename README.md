@@ -68,3 +68,8 @@ Logged in user memiliki akses untuk melakukan donasi baju dan membeli baju rewor
 
 ## Link Aplikasi
 https://install.appcenter.ms/orgs/iramakain/apps/irama-kain/distribution_groups/public
+
+## Perubahan Versi Terakhir
+- Memperbaiki error widget untuk apk pada donation
+- Memperbaiki ubah data donation menjadi asinkronus
+- Menambahkan fitur edit profile untuk profile page

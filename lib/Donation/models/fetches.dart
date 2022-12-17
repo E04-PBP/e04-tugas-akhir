@@ -12,14 +12,14 @@ Future<List<DonationModel>> fetchDonationInfo(BuildContext context) async {
 
   var responseInfo =
       await request.get("https://irama-kain.up.railway.app/donation/json/");
-  print(responseInfo);
+  // print(responseInfo);
   for (var x in responseInfo) {
-    print("sampe sini");
-    print(x);
+    // print("sampe sini");
+    // print(x);
     DonationModel object = DonationModel.fromJson(x);
     listDonationInfo.add(object);
-    print("====================ini objek================");
-    print(object);
+    // print("====================ini objek================");
+    // print(object);
   }
   // print(responseInfo);
   return listDonationInfo;
@@ -44,7 +44,7 @@ Future<DonationModel> fetchCurrent(BuildContext context, int pk) async {
   List<DonationModel> listDonation = [];
   var response = await request
       .get("https://irama-kain.up.railway.app/donation/current/${pk}");
-  print(response);
+  // print(response);
   for (var x in response) {
     DonationModel object = DonationModel.fromJson(x);
     listDonation.add(object);
